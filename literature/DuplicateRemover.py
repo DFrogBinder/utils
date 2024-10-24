@@ -58,7 +58,19 @@ class Parser:
 
         if save_data:
             self.SaveToCSV(self.FilteredData)
+        
+        return self.FilteredData
 
+    def CheckResuts(self, data):
+        num_nan = data['Year'].isna().sum()
+        num_numeric = data['Year'].notna().sum()
+
+        self.logger.info(f"Number of NaN entries: {num_nan}")
+        self.logger.info(f"Number of numeric entries: {num_numeric}")
+        
+        return 1
+
+    
     def SaveToCSV(self, dataset, path=None, filename='Output.csv'):
 
         if path is None:
@@ -66,6 +78,9 @@ class Parser:
         if not os.path.exists(path):
             os.makedirs(path)
 
-        dataset.to_csv(os.path.join(path, filename), index=False)
+        flag = self.CheckResuts(dataset)
+        
+        if flag:
+            dataset.to_csv(os.path.join(path, filename), index=False)
         
         self.logger.info(f"Dataset was saved to {os.path.join(path, filename)}")
