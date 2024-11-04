@@ -1,4 +1,20 @@
 data/
 media/
-__pychache__/
+
+__pycache__/
+
+# Byte-compiled files
+*.py[cod]
+
+# Python virtual environment folders
+venv/
+.env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Cache and logs
+*.log
+*.cache
+*.egg-info/
 
