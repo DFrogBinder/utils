@@ -5,6 +5,8 @@ __pycache__/
 
 # Byte-compiled files
 *.py[cod]
+*.pyc
+*.png
 
 # Python virtual environment folders
 venv/
