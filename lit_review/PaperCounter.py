@@ -32,18 +32,19 @@ class PaperPlotter:
         plt.bar(self.papers_per_year.index, self.papers_per_year.values, color='skyblue', edgecolor='black')
 
         # Add titles and labels
-        plt.title('Number of Papers Published per Year', fontsize=16, fontweight='bold')
-        plt.xlabel('Year', fontsize=14)
-        plt.ylabel('Number of Papers', fontsize=14)
+        plt.title('Number of Papers Published per Year', fontsize=30, fontweight='bold')
+        plt.xlabel('Year', fontsize=25)
+        plt.ylabel('Number of Papers', fontsize=25)
 
         # Improve aesthetics
-        plt.xticks(rotation=45)
+        plt.yticks(fontsize=20)
+        plt.xticks(rotation=45,fontsize=20)
         plt.grid(axis='y', linestyle='--', alpha=0.7)
         plt.tight_layout()
 
         # Save or show the plot
         if output_file:
-            plt.savefig(output_file, dpi=300)
+            plt.savefig(output_file, dpi=500)
         else:
             plt.show()
 
